@@ -1,12 +1,17 @@
 <mat-toolbar>
+  <img id="image" src="../../../assets/usherbrooke.png" height="50" width="50" style=" padding: 10px 5px 5px 5px"/>
   <span>Notificus Application</span>
+  <span class="fill-remaining-space"></span>
   <span>Welcome {{user.firstName}} {{user.lastName}}!</span>
-  <button mat-raised-button (click)=logout()>Logout</button>
+  <button class="logButton" mat-raised-button (click)=logout()>Logout</button>
 </mat-toolbar>
+
 <div>
   <br>
   <mat-card>
-    <h1>User Configuration Page</h1>
+    <div style="text-align: center">
+      <h1>User Configuration Page</h1>
+    </div>
     <br><br>
     <mat-divider></mat-divider>
     <br>
@@ -17,22 +22,22 @@
         </mat-expansion-panel-header>
         <form [formGroup]="emailConfigurationForm">
           <div>
-            <mat-slide-toggle formControlName="enabled">Enabled</mat-slide-toggle>
+            <mat-slide-toggle formControlName="enabled" style="margin-bottom: 10px">Enabled</mat-slide-toggle>
           </div>
           <div formArrayName="emails">
             <div *ngFor="let email of emailConfigurationForm.controls.emails.controls; let i=index">
               <mat-form-field>
                 <input matInput placeholder="Email Address" [formControlName]="i">
               </mat-form-field>
-              <button mat-raised-button color="warn" *ngIf="isEditing" (click)="deleteEmail(i)">Delete</button>
+              <button class="deleteButton" mat-raised-button color="warn" *ngIf="isEditing" (click)="deleteEmail(i)">Delete</button>
             </div>
           </div>
-          <button mat-raised-button *ngIf="isEditing" (click)="addNewEmail()">Add Email Address</button>
+          <button class="logButton" mat-raised-button *ngIf="isEditing" (click)="addNewEmail()">Add Email Address</button>
         </form>
         <mat-action-row>
-          <button mat-raised-button *ngIf="isEditing" (click)=save()>Save</button>
-          <button mat-raised-button *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
-          <button mat-raised-button *ngIf="isEditing == false" (click)="enableEditing()">Edit</button>
+          <button class="logButton" mat-raised-button *ngIf="isEditing" (click)=save()>Save</button>
+          <button class="cancelButton" mat-raised-button *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
+          <button class="logButton" mat-raised-button  *ngIf="isEditing == false" (click)="enableEditing()">Edit</button>
         </mat-action-row>
       </mat-expansion-panel>
       <mat-expansion-panel>

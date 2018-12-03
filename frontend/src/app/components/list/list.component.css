@@ -1,0 +1,28 @@
+mat-toolbar {
+  border-top: 15px solid #00a758;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.logButton{
+  margin-left:10px;
+  background: #00a758;
+  color: white;
+}
+
+.logButton:hover {
+  background-color: #016735;
+  color: white;
+}
+
+.deleteButton:hover
+{
+  background-color: #C40233;
+}
+
+.cancelButton:hover
+{
+  background-color: #A9A9A9;
+}
