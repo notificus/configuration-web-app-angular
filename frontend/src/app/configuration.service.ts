@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigurationService {
-  uri = 'http://configuration-web-app-bff:4000';
+  uri = environment.backendUrl;
 
   constructor(private http: HttpClient) { }
 
   login() {
-    window.location.href = 'http://localhost:4000/login';
+    window.location.href = this.uri + '/login';
   }
 
   logout() {
-    window.location.href = 'http://localhost:4000/logout';
+    window.location.href = this.uri + '/logout';
   }
 
   getUser() {
@@ -26,7 +27,6 @@ export class ConfigurationService {
   }
 
   updateUserConfigurations(userConfiguration) {
-    console.log(userConfiguration);
     return this.http.put(this.uri + '/users/me/configurations', userConfiguration, { withCredentials: true });
   }
 }

@@ -72,10 +72,7 @@ router.route('/users/me').get((request, response) => {
             }
         })
     } else {
-        // return response.redirect('/login')
-        userService.getUser('garp2405', (err, user) => {
-            return response.json(user)
-        })
+        return response.redirect('/login')
     }
 })
 
@@ -126,4 +123,4 @@ router.route('/logout').get((request, response) => {
 
 app.use('/', router);
 
-app.listen(config.port, () => console.log('Express server is running on port ' + config.port));
+app.listen(4000, () => console.log('Express server is running on port 4000'));

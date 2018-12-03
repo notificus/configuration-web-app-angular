@@ -25,7 +25,7 @@
             <mat-slide-toggle formControlName="enabled" style="margin-bottom: 10px">Enabled</mat-slide-toggle>
           </div>
           <div formArrayName="emails">
-            <div *ngFor="let email of emailConfigurationForm.controls.emails.controls; let i=index">
+            <div *ngFor="let email of emailConfigurationForm['controls'].emails['controls']; let i=index">
               <mat-form-field>
                 <input matInput placeholder="Email Address" [formControlName]="i">
               </mat-form-field>

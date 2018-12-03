@@ -12,20 +12,20 @@ import { ConfigurationService } from '../../configuration.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  private configuration: Configuration = {
+  configuration: Configuration = {
     emailEnabled: false,
     emails: ['']
   }
 
-  private user: User = {
+  user: User = {
     cip: '',
     firstName: '',
     lastName: ''
   }
 
-  private emailConfigurationForm: FormGroup
+  emailConfigurationForm: FormGroup
 
-  private isEditing = false
+  isEditing = false
   
   constructor(private configurationService: ConfigurationService, private router: Router, private formBuilder: FormBuilder) {
     this.createEmailFormGroup();
@@ -102,6 +102,6 @@ export class ListComponent implements OnInit {
   }
 
   get emails() {
-    return this.emailConfigurationForm.get('emails') as FormArray;
+    return <FormArray>this.emailConfigurationForm.get('emails');
   }
 }
