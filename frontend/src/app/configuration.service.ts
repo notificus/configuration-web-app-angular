@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ConfigurationService {
-  uri = 'http://localhost:4000';
+  uri = 'http://configuration-web-app-bff:4000';
 
   constructor(private http: HttpClient) { }
 
