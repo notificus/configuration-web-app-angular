@@ -88,11 +88,11 @@ router.route('/users/me/add').get((request, response) => {
         var cip = request.session.cas.user
         userService.getUser(cip, (err, user) => {
             if (!err && user) {
-                return response.redirect(request.get('host') + '/list')
+                return response.redirect('http://localhost:4200/list')
             } else if (!err && !user) {
                 userService.createUser(cip, (err) => {
                     if (!err) {
-                        return response.redirect(request.get('host') + '/list')
+                        return response.redirect('http://localhost:4200/list')
                     } else {
                         return response.json('you suck')
                     }
