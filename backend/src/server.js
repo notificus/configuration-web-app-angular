@@ -20,7 +20,7 @@ cas.configure({
 })
 
 var corsOptions = {
-    origin: 'http://configuration-web-app:4200',
+    origin: 'http://localhost:4200',
     credentials: true
 }
 
@@ -88,7 +88,6 @@ router.route('/users/me/add').get((request, response) => {
         var cip = request.session.cas.user
         userService.getUser(cip, (err, user) => {
             if (!err && user) {
-                return response.redirect('http://localhost:4200/list')
                 return response.redirect(request.get('host') + '/list')
             } else if (!err && !user) {
                 userService.createUser(cip, (err) => {

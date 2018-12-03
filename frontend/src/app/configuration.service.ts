@@ -10,15 +10,15 @@ export class ConfigurationService {
   constructor(private http: HttpClient) { }
 
   login() {
-    window.location.href = this.uri + '/login';
+    window.location.href = 'http://localhost:4000/login';
   }
 
   logout() {
-    window.location.href = this.uri + '/logout';
+    window.location.href = 'http://localhost:4000/logout';
   }
 
   getUser() {
-    return this.http.get(this.uri + '/users/me');
+    return this.http.get(this.uri + '/users/me', { withCredentials: true });
   }
 
   listUserConfigurations() {
