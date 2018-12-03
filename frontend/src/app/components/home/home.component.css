@@ -1,0 +1,22 @@
+
+mat-toolbar {
+  border-top: 15px solid #00a758;
+}
+
+.fill-remaining-space {
+flex: 1 1 auto;
+}
+
+.logButton{
+  background: #00a758;
+  font-size : 25px;
+  color: white;
+  height:75px;
+  width:150px;
+}
+
+.logButton:hover {
+  background-color: #016735;
+  color: white;
+}
+
