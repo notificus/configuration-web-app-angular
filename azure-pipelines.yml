@@ -1,10 +1,8 @@
-pool:
-  vmImage: 'Ubuntu 16.04'
-
-steps:
-- script: docker build -t notificus/configuration-web-app-bff ./backend
-- script: docker build -t notificus/configuration-web-app ./frontend
-- script: | 
-    docker login -u notificus -p c2Mwk-Mc
-    docker push notificus/configuration-web-app-bff
-    docker push notificus/configuration-web-app
+jobs:
+- job: Build
+  steps:
+  - script: docker build -t notificus/configuration-web-app-bff ./backend
+  - script: docker build -t notificus/configuration-web-app ./frontend
+    condition: always()
+  - script: docker login -u notificus -p c2Mwk-Mc && docker push notificus/configuration-web-app-bff && docker push notificus/configuration-web-app
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
